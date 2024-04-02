@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: "TicTacToe"
+  main:
+    banner-mode: "off"
+
+server:
+  port : 8080
+
+management:
+  info:
+    git:
+      enabled: true
+      mode: simple
+  endpoint:
+    info:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "info,health,env"
+        exclude: "beans"
+
+logging:
+  level:
+    root: "WARN"
