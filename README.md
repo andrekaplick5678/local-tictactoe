@@ -15,24 +15,25 @@
 
 ```bash
 ## start a new game
-curl -s -X PUT http://localhost:8080/game/start
+curl -X PUT "http://localhost:8080/game/start"
 ```
 
 Response:
 ```json
 {
-  "gameId": "c380f8b2-0958-4235-888d-1d642c9a8d76"
+  "gameId": "9fe501b1-420e-449a-b137-47117e435ece"
 }
 ```
 
 ```bash
 ## show game state
-curl -s -X GET http://localhost:8080/game?gameId=c380f8b2-0958-4235-888d-1d642c9a8d76
+curl -s -X GET "http://localhost:8080/game?gameId=9fe501b1-420e-449a-b137-47117e435ece"
 ```
 
 ```bash
 ## make move
-curl -s -X POST \
-  -d '{player:1, x: 3, y: 2}' \
-  http://localhost:8080/game?gameId=c380f8b2-0958-4235-888d-1d642c9a8d76
+curl -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"player": 1, "x": 3, "y": 2}' \
+  "http://localhost:8080/game?gameId=9fe501b1-420e-449a-b137-47117e435ece"
 ```
